@@ -1,14 +1,16 @@
-import Head from "next/head";
+import React from "react";
 import Navigation from "../component/Navigation";
 
-export default function Home() {
+const bookmarks = () => {
   return (
     <Navigation>
       <main>
         <div className="max-w-screen-md p-4 bg-white mx-auto min-h-full mt-12">
-          Home
+          Bookmarks
         </div>
       </main>
     </Navigation>
   );
-}
+};
+
+export default bookmarks;
