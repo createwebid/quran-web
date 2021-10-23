@@ -18,7 +18,7 @@ const BottomNavigation = () => {
           >
             <ul className="max-w-screen-md mx-auto flex flex-col-reverse px-4 text-blue-text font-semibold text-base">
               <li className="flex justify-center h-14 bg-white hover:bg-gray-200">
-                <button className="w-full h-full flex flex-row items-center px-2">
+                <button className="w-full h-full flex flex-row items-center px-1">
                   <Image
                     src="/translate.svg"
                     alt="Menu"
@@ -29,7 +29,7 @@ const BottomNavigation = () => {
                 </button>
               </li>
               <li className="flex justify-center h-14 bg-white hover:bg-gray-200">
-                <button className="w-full h-full flex flex-row items-center px-2">
+                <button className="w-full h-full flex flex-row items-center px-1">
                   <Image
                     src="/feedback.svg"
                     alt="Menu"
@@ -40,7 +40,7 @@ const BottomNavigation = () => {
                 </button>
               </li>
               <li className="flex justify-center h-14 bg-white hover:bg-gray-200">
-                <button className="w-full h-full flex flex-row items-center px-2">
+                <button className="w-full h-full flex flex-row items-center px-1">
                   <Image
                     src="/about.svg"
                     alt="Menu"
@@ -54,14 +54,18 @@ const BottomNavigation = () => {
           </div>
         </Fragment>
       )}
-      <div className="w-full bg-white fixed bottom-0 z-50 border-t border-gray-line ">
-        <div className="max-w-screen-md mx-auto flex justify-between items-center px-4 pt-3 pb-2">
-          <button onClick={() => setShow(!show)}>
+      <div
+        className={`w-full bg-white fixed bottom-0 z-50 border-gray-line ${
+          !show ? "border-t" : "border-t-0"
+        }`}
+      >
+        <div className="max-w-screen-md max-h-14 mx-auto flex justify-between items-center px-4 pt-3 pb-2">
+          <button className="outline-none" onClick={() => setShow(!show)}>
             <Image src="/menu.svg" alt="Menu" height="32px" width="32px" />
           </button>
-          <button>
+          {/* <button>
             <Image src="/search.svg" alt="Menu" height="28px" width="28px" />
-          </button>
+          </button> */}
         </div>
       </div>
     </Fragment>
