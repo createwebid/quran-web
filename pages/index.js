@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Navigation from "../component/Navigation";
 
 export default function Home() {
