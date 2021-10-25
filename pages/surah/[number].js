@@ -20,7 +20,7 @@ const Surah = () => {
         name={ayah?.name.translation.id}
       />
       <main>
-        <div className="max-w-screen-md p-4 bg-white mx-auto min-h-full">
+        <div className="max-w-screen-md p-4 mt-2 mb-14 bg-white mx-auto min-h-full">
           <div className="flex flex-col mt-12">
             {ayah?.number === 1 ? null : (
               <div className="rounded-lg flex justify-center bg-blue-50 font-quran font-medium text-3xl mt-3 py-3">{`\ufeffبِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ`}</div>
