@@ -12,7 +12,7 @@ const indexquran = () => {
   return (
     <Navigation>
       <main>
-        <div className="max-w-screen-md p-4 bg-white mx-auto min-h-full mt-12">
+        <div className="max-w-screen-md p-4 bg-white mx-auto min-h-full mt-14">
           <ul>
             {surahList?.map((list) => (
               <li key={list.number}>
