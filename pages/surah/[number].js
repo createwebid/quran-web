@@ -10,7 +10,7 @@ const Surah = () => {
   const { number } = router.query;
   useEffect(() => {
     number && getAyah(number);
-  }, []);
+  }, [number]);
   return (
     <Fragment>
       <TopSurahNavigation
