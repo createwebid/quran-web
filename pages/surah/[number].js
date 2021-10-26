@@ -1,71 +1,49 @@
-import React, { useEffect, Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { useRouter } from "next/router";
+import QuranPage from "../../component/QuranPage";
 import { useQueryQuran } from "../../lib/queryQuran";
 import BottomNavigation from "../../component/BottomNavigation";
 import TopSurahNavigation from "../../component/TopSurahNavigation";
 
 const Surah = () => {
   const { ayah, getAyah } = useQueryQuran();
+  const [tafsir, showTafsir] = useState(false);
   const router = useRouter();
   const { number } = router.query;
   useEffect(() => {
     number && getAyah(number);
   }, [number]);
-  const toArabicNumber = (s) =>
-    s.toString().replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]);
   return (
     <Fragment>
       <TopSurahNavigation
-        revelation={ayah?.revelation.id}
-        number={ayah?.number}
-        numberOfVerses={ayah?.numberOfVerses}
+        number={ayah?.numberOfVerses}
         arabicName={ayah?.name.transliteration.id}
-        name={ayah?.name.translation.id}
       />
       <main>
         <div className="max-w-screen-md p-4 mt-2 mb-14 bg-white mx-auto min-h-full">
-          <div className="flex flex-col mt-12">
+          <div className="flex flex-col mt-14">
+            <div className="w-full p-4 bg-gradient-to-r from-blue-text to-blue-line rounded-lg flex flex-col justify-center">
+              <h1 className="w-full text-whitefont-quran text-white text-4xl pt-4 pb-2 flex justify-center">
+                {ayah?.name.long}
+              </h1>
+              <h2 className="w-full text-white  border-b-2  font-normal text-xl pb-2 flex justify-center">
+                {`${ayah?.name.transliteration.id} / ${ayah?.name.translation.id}`}
+              </h2>
+              <p className="w-full text-white font-normal text-base pt-2 pb-4 flex justify-center">
+                {`${ayah?.revelation.id} \t-\t ${ayah?.numberOfVerses} Ayat`}
+              </p>
+            </div>
             {ayah?.number === 1 ? null : (
               <div className="rounded-lg flex justify-center bg-blue-50 font-quran font-medium text-3xl mt-3 py-4">{`بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ`}</div>
             )}
             {ayah?.verses?.map((item, index) => {
               return (
-                <Fragment>
-                  <div
-                    className={`flex flex-row rounded-t-lg mt-3 ${
-                      index % 2 !== 0 ? "bg-blue-50" : "bg-gray-50"
-                    }`}
-                  >
-                    <h1 className="text-4xl p-4 font-quran text-blue-text">{`${toArabicNumber(
-                      item.number.inSurah
-                    )}`}</h1>
-                  </div>
-                  <div
-                    className={`px-4 flex flex-col rounded-lg ${
-                      index % 2 !== 0 ? "bg-blue-50" : "bg-gray-50"
-                    }`}
-                  >
-                    <p
-                      className="text-gray-600 py-3 items-end font-quran text-2xl text-right"
-                      style={{ lineHeight: 2.5 }}
-                    >
-                      {item.text.arab}
-                    </p>
-                    <p className="text-purple-500 py-1 text-left font-normal text-base">
-                      Terjemah:
-                    </p>
-                    <p className="text-gray-500 pb-4 text-left font-normal text-base">
-                      {item.translation.id}
-                    </p>
-                    {/*
-                    <p className="text-pink-500 py-1 text-left font-normal text-base">
-                      Tafsir:
-                    </p>
-                    <p className="text-gray-500 pb-4 text-left font-normal text-base">
-                      {item.tafsir.id.long}
-                    </p> */}
-                  </div>
-                </Fragment>
+                <QuranPage
+                  key={index}
+                  number={item?.number.inSurah}
+                  arabText={item?.text.arab}
+                  terjemah={item?.translation.id}
+                />
               );
             })}
           </div>

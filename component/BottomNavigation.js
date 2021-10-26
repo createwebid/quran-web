@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Image from "next/image";
 
-const BottomNavigation = ({ bottomMenu }) => {
+const BottomNavigation = () => {
   const [show, setShow] = useState(false);
   return (
     <Fragment>
@@ -14,7 +14,7 @@ const BottomNavigation = ({ bottomMenu }) => {
 
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full bg-gray-200 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200 fixed bottom-14 z-50"
+            className="w-full bg-gray-100 border border-gray-200 fixed bottom-14 z-50"
           >
             <ul className="max-w-screen-md mx-auto flex flex-col-reverse px-4 text-blue-text font-semibold text-base">
               <li className="flex justify-center h-14  hover:bg-gray-200">
@@ -62,6 +62,19 @@ const BottomNavigation = ({ bottomMenu }) => {
         <div className="max-w-screen-md max-h-14 mx-auto flex justify-between items-center px-4 pt-3 pb-2">
           <button className="outline-none" onClick={() => setShow(!show)}>
             <Image src="/menu.svg" alt="Menu" height="32px" width="32px" />
+          </button>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="px-2 outline-none flex flex-row justify-center items-center"
+          >
+            <Image
+              className="transform rotate-180"
+              name="ScrollToTop"
+              src="/loadmore.svg"
+              alt="Menu"
+              height="24px"
+              width="24px"
+            />
           </button>
         </div>
       </div>
