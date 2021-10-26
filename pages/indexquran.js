@@ -5,7 +5,7 @@ import QuranListItem from "../component/QuranListItem";
 import Link from "next/link";
 
 const indexquran = () => {
-  const { getSurahList, surahList } = useQueryQuran();
+  const { getSurahList, surahList, loading } = useQueryQuran();
   useEffect(() => {
     surahList.length !== 0 ? null : getSurahList();
   }, [surahList]);

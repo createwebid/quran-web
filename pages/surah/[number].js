@@ -16,6 +16,9 @@ const Surah = () => {
   return (
     <Fragment>
       <TopSurahNavigation
+        revelation={ayah?.revelation.id}
+        number={ayah?.number}
+        numberOfVerses={ayah?.numberOfVerses}
         arabicName={ayah?.name.transliteration.id}
         name={ayah?.name.translation.id}
       />
@@ -23,7 +26,7 @@ const Surah = () => {
         <div className="max-w-screen-md p-4 mt-2 mb-14 bg-white mx-auto min-h-full">
           <div className="flex flex-col mt-12">
             {ayah?.number === 1 ? null : (
-              <div className="rounded-lg flex justify-center bg-blue-50 font-quran font-medium text-3xl mt-3 py-3">{`\ufeffبِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ`}</div>
+              <div className="rounded-lg flex justify-center bg-blue-50 font-quran font-medium text-3xl mt-3 py-4">{`بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ`}</div>
             )}
             {ayah?.verses?.map((item, index) => {
               return (
@@ -48,13 +51,13 @@ const Surah = () => {
                     >
                       {item.text.arab}
                     </p>
-                    {/* <p className="text-purple-500 py-1 text-left font-normal text-base">
+                    <p className="text-purple-500 py-1 text-left font-normal text-base">
                       Terjemah:
                     </p>
                     <p className="text-gray-500 pb-4 text-left font-normal text-base">
                       {item.translation.id}
                     </p>
-
+                    {/*
                     <p className="text-pink-500 py-1 text-left font-normal text-base">
                       Tafsir:
                     </p>

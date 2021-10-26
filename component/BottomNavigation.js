@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Image from "next/image";
 
-const BottomNavigation = () => {
+const BottomNavigation = ({ bottomMenu }) => {
   const [show, setShow] = useState(false);
   return (
     <Fragment>
