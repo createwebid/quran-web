@@ -1,6 +1,8 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
+import { useQueryQuran } from "../lib/queryQuran";
 
-const QuranPage = ({ number, arabText, terjemah }) => {
+const QuranPage = ({ number, arabText, terjemah, tafsir }) => {
+  const { showTafsir, loading } = useQueryQuran();
   const toArabicNumber = (s) =>
     s.toString().replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]);
   return (
@@ -26,19 +28,25 @@ const QuranPage = ({ number, arabText, terjemah }) => {
         >
           {arabText}
         </p>
-        <p className="text-purple-500 py-1 text-left font-normal text-base">
-          Terjemah:
-        </p>
-        <p className="text-gray-500 pb-4 text-left font-normal text-base">
-          {terjemah}
-        </p>
-        {/*
-      <p className="text-pink-500 py-1 text-left font-normal text-base">
-        Tafsir:
-      </p>
-      <p className="text-gray-500 pb-4 text-left font-normal text-base">
-        {item.tafsir.id.long}
-      </p> */}
+        {showTafsir ? (
+          <Fragment>
+            <p className="text-pink-500 py-1 text-left font-normal text-base">
+              Tafsir:
+            </p>
+            <p className="text-gray-500 pb-4 text-left font-normal text-base">
+              {tafsir}
+            </p>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <p className="text-purple-500 py-1 text-left font-normal text-base">
+              Terjemah:
+            </p>
+            <p className="text-gray-500 pb-4 text-left font-normal text-base">
+              {terjemah}
+            </p>
+          </Fragment>
+        )}
       </div>
     </Fragment>
   );

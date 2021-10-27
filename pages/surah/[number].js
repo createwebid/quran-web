@@ -7,7 +7,6 @@ import TopSurahNavigation from "../../component/TopSurahNavigation";
 
 const Surah = () => {
   const { ayah, getAyah } = useQueryQuran();
-  const [tafsir, showTafsir] = useState(false);
   const router = useRouter();
   const { number } = router.query;
   useEffect(() => {
@@ -21,7 +20,7 @@ const Surah = () => {
       />
       <main>
         <div className="max-w-screen-md p-4 mt-2 mb-14 bg-white mx-auto min-h-full">
-          <div className="flex flex-col mt-14">
+          <div className="flex flex-col mt-24">
             <div className="w-full p-4 bg-gradient-to-r from-blue-text to-blue-line rounded-lg flex flex-col justify-center">
               <h1 className="w-full text-whitefont-quran text-white text-4xl pt-4 pb-2 flex justify-center">
                 {ayah?.name.long}
@@ -43,6 +42,7 @@ const Surah = () => {
                   number={item?.number.inSurah}
                   arabText={item?.text.arab}
                   terjemah={item?.translation.id}
+                  tafsir={item?.tafsir.id.long}
                 />
               );
             })}

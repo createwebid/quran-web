@@ -24,30 +24,34 @@ const TopSurahNavigation = ({ arabicName, number }) => {
   };
   return (
     <div className="w-full bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 bg-gray-200 border-gray-100 fixed top-0 z-30 border-b-2">
-      <div className="max-w-screen-md mx-auto p-4 flex flex-row items-center justify-between text-blue-text font-normal text-lg">
-        <Link href="/indexquran" className="outline-none flex items-center">
-          <a>
-            <Image src="/back.svg" alt="back" height="24px" width="24px" />
-          </a>
-        </Link>
-        <h1 className="text-lg font-semibold tracking-wide">
-          {`Surah ${arabicName}`}
-        </h1>
-        <div className="w-44">
-          <div className="bg-blue-text py-1 px-3 flex justify-between rounde-md rounded-md">
+      <div className="max-w-screen-md mx-auto p-4 flex flex-col items-center justify-between text-blue-text font-normal text-lg">
+        <div className="w-full flex flex-row justify-between">
+          <Link href="/" className="outline-none flex items-center">
+            <a>
+              <Image src="/back.svg" alt="back" height="24px" width="24px" />
+            </a>
+          </Link>
+          <h1 className="text-lg font-semibold tracking-wide">
+            {`Surah ${arabicName}`}
+          </h1>
+          <div></div>
+        </div>
+
+        <div className="w-full mt-2">
+          <form
+            onSubmit={(e) => doSearch(e)}
+            className="bg-blue-text py-1 px-3 flex justify-between rounde-md rounded-md"
+          >
             <input
-              onKeyPress={(e) => {
-                if (e.key === "Enter") doSearch();
-              }}
               value={val}
               onChange={(e) => {
                 setVal(e.target.value);
               }}
-              className="w-32 tracking-wider flex-grow outline-none placeholder-opacity-50 bg-blue-text text-white focus:text-white"
+              className="w-32 tracking-wider flex-grow outline-none placeholder-white placeholder-opacity-50 bg-blue-text text-white focus:text-white"
               type="number"
               placeholder="Navigasi Ayat"
             />
-            <button onClick={(e) => doSearch(e)}>
+            <button type="submit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-white hover:text-white transition duration-100 cursor-pointer"
@@ -63,7 +67,7 @@ const TopSurahNavigation = ({ arabicName, number }) => {
                 />
               </svg>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

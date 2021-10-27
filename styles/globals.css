@@ -5,6 +5,7 @@
 @tailwind utilities;
 html,
 body {
+  scrollbar-width: none;
   padding: 0;
   margin: 0;
   font-family: "Product Sans", "LPMQ Isep Misbah", -apple-system,
@@ -21,17 +22,25 @@ a {
   box-sizing: border-box;
 }
 
+/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  margin: 0;
 }
 
+/* Firefox */
 input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
 }
 
+/* Toggle B */
+input:checked ~ .bg-dot {
+  background-color: rgb(0, 119, 148);
+}
+input:checked ~ .dot {
+  transform: translateX(100%);
+}
 /* CHECKBOX TOGGLE SWITCH */
 /* @apply rules for documentation, these do not work as inline style */
 .toggle-checkbox:checked {
