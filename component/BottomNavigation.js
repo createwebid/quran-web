@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import Image from "next/image";
 import { useQueryQuran } from "../lib/queryQuran";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const BottomNavigation = () => {
   const router = useRouter();
@@ -57,26 +58,31 @@ const BottomNavigation = () => {
                 </li>
               ) : null}
               <li className="flex justify-center h-14  hover:bg-gray-200">
-                <button className="w-full h-full flex flex-row items-center px-1">
+                <a
+                  href="mailto:lukistriya04@gmail.com"
+                  className="w-full h-full flex flex-row items-center px-1"
+                >
                   <Image
                     src="/feedback.svg"
                     alt="Menu"
                     height="18px"
                     width="18px"
                   />
-                  <span className="ml-4">Kirimkan Masukan</span>
-                </button>
+                  <span className="ml-4">Kirimkan Masukan Melalui Surel</span>
+                </a>
               </li>
               <li className="flex justify-center h-14  hover:bg-gray-200">
-                <button className="w-full h-full flex flex-row items-center px-1">
-                  <Image
-                    src="/about.svg"
-                    alt="Menu"
-                    height="18px"
-                    width="18px"
-                  />
-                  <span className="ml-4">Tentang</span>
-                </button>
+                <Link href="/about">
+                  <a className="w-full h-full flex flex-row items-center px-1">
+                    <Image
+                      src="/about.svg"
+                      alt="Menu"
+                      height="18px"
+                      width="18px"
+                    />
+                    <span className="ml-4">Tentang</span>
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>

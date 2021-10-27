@@ -45,9 +45,6 @@ const index = () => {
         <div className="max-w-screen-md mx-auto px-3 pt-4 pb-4">
           <div className="shadow-xl w-full py-8 bg-gradient-to-r from-blue-text to-blue-line rounded-lg flex flex-col items-center justify-center">
             <Image src="/quran.svg" alt="Menu" height="160px" width="290px" />
-            <h1 className="py-4 text-3xl font-semibold text-white">
-              Aplikasi Al-Quran
-            </h1>
           </div>
         </div>
         <div className="max-w-screen-md mx-auto px-3 my-4 sticky top-1">
