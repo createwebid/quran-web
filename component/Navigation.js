@@ -1,14 +1,12 @@
 import React, { Fragment } from "react";
 import BottomNavigation from "./BottomNavigation";
-import TopNavigation from "./TopNavigation";
 
-const Navigation = ({ children }) => {
+const Navigation = ({ children, bottomMenu }) => {
   return (
     <Fragment>
-      <TopNavigation />
       {children}
       <footer>
-        <BottomNavigation />
+        <BottomNavigation menu={bottomMenu} />
       </footer>
     </Fragment>
   );
