@@ -4,6 +4,7 @@ import Navigation from "../component/Navigation";
 import QuranListItem from "../component/QuranListItem";
 import Link from "next/link";
 import Image from "next/image";
+import Loading from "../component/Loading";
 
 const index = () => {
   const [val, setVal] = useState("");
@@ -41,7 +42,7 @@ const index = () => {
   return (
     <Navigation>
       <main>
-        <div className="max-w-screen-md mx-auto px-3 py-2">
+        <div className="max-w-screen-md mx-auto px-3 pt-4 pb-4">
           <div className="shadow-xl w-full py-8 bg-gradient-to-r from-blue-text to-blue-line rounded-lg flex flex-col items-center justify-center">
             <Image src="/quran.svg" alt="Menu" height="160px" width="290px" />
             <h1 className="py-4 text-3xl font-semibold text-white">
@@ -83,26 +84,33 @@ const index = () => {
             </form>
           </div>
         </div>
-        <div className="max-w-screen-md p-4 bg-white mx-auto min-h-full">
-          <ul>
-            {filteredData?.map((list) => (
-              <li key={list.number}>
-                <Link href={`/surah/${list.number}`}>
-                  <a>
-                    <QuranListItem
-                      revelationType={list.revelation.id}
-                      arabicName={list.name.short}
-                      numOfAyahs={list.numberOfVerses}
-                      number={list.number}
-                      translation={list.name.translation.id}
-                      name={list.name.transliteration.id}
-                    />
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="max-w-screen-md p-4 bg-white mx-auto min-h-full">
+            <ul>
+              {filteredData?.map((list) => (
+                <li key={list.number}>
+                  <Link
+                    className="focus:outline-none"
+                    href={`/surah/${list.number}`}
+                  >
+                    <a>
+                      <QuranListItem
+                        revelationType={list.revelation.id}
+                        arabicName={list.name.short}
+                        numOfAyahs={list.numberOfVerses}
+                        number={list.number}
+                        translation={list.name.translation.id}
+                        name={list.name.transliteration.id}
+                      />
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </main>
     </Navigation>
   );

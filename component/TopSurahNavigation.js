@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useQueryQuran } from "../lib/queryQuran";
 
 const TopSurahNavigation = ({ arabicName, number }) => {
   const [val, setVal] = useState("");
+  const { loading } = useQueryQuran();
   const doSearch = (e) => {
     e.preventDefault();
     if (val < 2) {
@@ -31,9 +33,25 @@ const TopSurahNavigation = ({ arabicName, number }) => {
               <Image src="/back.svg" alt="back" height="24px" width="24px" />
             </a>
           </Link>
-          <h1 className="text-lg font-semibold tracking-wide">
-            {`Surah ${arabicName}`}
-          </h1>
+          {loading ? (
+            <svg
+              fill="none"
+              class="w-6 h-6 animate-spin"
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          ) : (
+            <h1 className="text-lg font-semibold tracking-wide">
+              {`Surah ${arabicName}`}
+            </h1>
+          )}
           <div></div>
         </div>
 
