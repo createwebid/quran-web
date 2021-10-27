@@ -41,14 +41,16 @@ const index = () => {
   return (
     <Navigation>
       <main>
-        <div className="max-w-screen-md mx-auto px-3 py-2 ">
+        <div className="max-w-screen-md mx-auto px-3 py-2">
           <div className="shadow-xl w-full py-8 bg-gradient-to-r from-blue-text to-blue-line rounded-lg flex flex-col items-center justify-center">
             <Image src="/quran.svg" alt="Menu" height="160px" width="290px" />
             <h1 className="py-4 text-3xl font-semibold text-white">
               Aplikasi Al-Quran
             </h1>
           </div>
-          <div className="w-full mt-6 mb-3">
+        </div>
+        <div className="max-w-screen-md mx-auto px-3 my-4 sticky top-1">
+          <div className="w-full">
             <form
               onSubmit={(e) => doSearch(e)}
               className="bg-white border-2 border-blue-line py-2 px-3 flex justify-between rounde-md rounded-md"

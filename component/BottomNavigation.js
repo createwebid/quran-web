@@ -34,7 +34,7 @@ const BottomNavigation = () => {
                   </div>
                   <div className="flex items-center justify-center px-3">
                     <div className="mr-3 font-normal text-base opacity-70">
-                      {showTafsir ? "Show" : "Hide"}
+                      {showTafsir ? "Showed" : "Hidden"}
                     </div>
                     <label
                       htmlFor="toggleB"
@@ -92,7 +92,7 @@ const BottomNavigation = () => {
             <Image src="/menu.svg" alt="Menu" height="32px" width="32px" />
           </button>
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => window.scrollTo({ top: 1, behavior: "smooth" })}
             className="px-2 outline-none flex flex-row justify-center items-center"
           >
             <Image
