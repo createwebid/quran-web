@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
 import { useQueryQuran } from "../lib/queryQuran";
+import processText from "../lib/processText";
 
 const QuranPage = ({ number, arabText, terjemah, tafsir }) => {
-  const { showTafsir, loading } = useQueryQuran();
+  const { showTafsir } = useQueryQuran();
   const toArabicNumber = (s) =>
     s.toString().replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]);
+
   return (
     <Fragment>
       <div
@@ -33,8 +35,8 @@ const QuranPage = ({ number, arabText, terjemah, tafsir }) => {
             <p className="text-pink-500 py-1 text-left font-normal text-base">
               Tafsir:
             </p>
-            <p className="text-gray-500 pb-4 text-left font-normal text-base">
-              {tafsir}
+            <p className="text-gray-500 whitespace-pre-wrap leading-6 pb-4 text-left font-normal text-base">
+              {processText(tafsir)}
             </p>
           </Fragment>
         ) : (
