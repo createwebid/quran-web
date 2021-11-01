@@ -5,8 +5,8 @@ class MyDocument extends Document {
     return (
       <Html lang="id">
         <Head>
-          <title>Quran Application</title>
-          <meta name="description" content="Quran Application" />
+          <title>Quran Web Application</title>
+          <meta name="description" content="Quran Web Application" />
           <meta name="keywords" content="quran, quranweb, qurantafsir" />
           <meta name="author" content="Fahmi" />
           <meta
