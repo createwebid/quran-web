@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { useQueryQuran } from "../lib/queryQuran";
 import processText from "../lib/processText";
+import CostumAudioPlayer from "./CostumAudioPlayer";
 
-const QuranPage = ({ number, arabText, terjemah, tafsir }) => {
+const QuranPage = ({ number, arabText, terjemah, tafsir, audioSource }) => {
   const { showTafsir } = useQueryQuran();
   const toArabicNumber = (s) =>
     s.toString().replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]);
@@ -11,13 +12,19 @@ const QuranPage = ({ number, arabText, terjemah, tafsir }) => {
     <Fragment>
       <div
         id={number}
-        className={`flex flex-row justify-between rounded-t-lg mt-3 ${
+        className={`p-4 flex flex-row justify-between items-center rounded-t-lg mt-3 ${
           number % 2 !== 0 ? "bg-blue-50" : "bg-gray-50"
         }`}
       >
-        <h2 className="text-4xl p-4 font-quran text-blue-text">{`${toArabicNumber(
+        <h2 className="text-4xl font-quran text-blue-text">{`${toArabicNumber(
           number
         )}`}</h2>
+        <div className="flex">
+          <span className="text-lg sm:block hidden font-normal text-blue-text mr-2">
+            Play reciter
+          </span>
+          <CostumAudioPlayer audioSource={audioSource} />
+        </div>
       </div>
       <div
         className={`px-4 flex flex-col rounded-lg ${

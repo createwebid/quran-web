@@ -43,6 +43,7 @@ const Surah = () => {
                 return (
                   <QuranPage
                     key={index}
+                    audioSource={item?.audio.primary}
                     number={item?.number.inSurah}
                     arabText={item?.text.arab}
                     terjemah={item?.translation.id}
