@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import { useQueryQuran } from "../lib/queryQuran";
 import processText from "../lib/processText";
 import CostumAudioPlayer from "./CostumAudioPlayer";
+import Image from "next/image";
 
-const QuranPage = ({ number, arabText, terjemah, tafsir, audioSource }) => {
+const ListAyahItem = ({ number, arabText, terjemah, tafsir, audioSource }) => {
   const { showTafsir } = useQueryQuran();
   const toArabicNumber = (s) =>
     s.toString().replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]);
@@ -19,11 +20,24 @@ const QuranPage = ({ number, arabText, terjemah, tafsir, audioSource }) => {
         <h2 className="text-4xl font-quran text-blue-text">{`${toArabicNumber(
           number
         )}`}</h2>
-        <div className="flex">
-          <span className="text-lg sm:block hidden font-normal text-blue-text mr-2">
-            Play reciter
-          </span>
+        <div className="flex items-center gap-x-6 mr-2">
           <CostumAudioPlayer audioSource={audioSource} />
+          <button aria-label="btn-bookmarks">
+            <Image
+              alt="bookmarks-icon"
+              src={`/bookmarks.svg`}
+              width="28px"
+              height="28px"
+            />
+          </button>
+          <button aria-label="btn-share">
+            <Image
+              alt="share-icon"
+              src={`/share.svg`}
+              width="28px"
+              height="28px"
+            />
+          </button>
         </div>
       </div>
       <div
@@ -61,4 +75,4 @@ const QuranPage = ({ number, arabText, terjemah, tafsir, audioSource }) => {
   );
 };
 
-export default QuranPage;
+export default ListAyahItem;

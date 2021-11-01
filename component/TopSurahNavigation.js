@@ -69,7 +69,7 @@ const TopSurahNavigation = ({ arabicName, number }) => {
               type="number"
               placeholder="Navigasi Ayat"
             />
-            <button name="SearchButton" type="submit">
+            <button aria-label="search-btn" name="SearchButton" type="submit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-white hover:text-white transition duration-100 cursor-pointer"

@@ -80,10 +80,15 @@ const BottomNavigation = () => {
         }`}
       >
         <div className="max-w-screen-md max-h-14 mx-auto flex justify-between items-center px-4 pt-3 pb-2">
-          <button className="outline-none" onClick={() => setShow(!show)}>
+          <button
+            aria-label="menu-btn"
+            className="outline-none"
+            onClick={() => setShow(!show)}
+          >
             <Image src="/menu.svg" alt="Menu" height="32px" width="32px" />
           </button>
           <button
+            aria-label="scroll-top"
             onClick={() => window.scrollTo({ top: 1, behavior: "smooth" })}
             className="px-2 outline-none flex flex-row justify-center items-center"
           >

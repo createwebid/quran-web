@@ -25,6 +25,7 @@ const CostumAudioPlayer = ({ audioSource }) => {
         style={{ minWidth: "24px" }}
       >
         <button
+          aria-label={`playbtn-${audioSource}`}
           hidden={isPlaying}
           onClick={() => {
             setIsLoading(true);
@@ -39,12 +40,14 @@ const CostumAudioPlayer = ({ audioSource }) => {
           }}
         >
           <Image
+            alt={`play-${audioSource}`}
             src={`/musicplayer/play_arrow.svg`}
-            width="28px"
-            height="28px"
+            width="36px"
+            height="36px"
           />
         </button>
         <button
+          aria-label={`stopbtn-${audioSource}`}
           onClick={() => {
             document.getElementById(audioSource).pause();
             document.getElementById(audioSource).currentTime = 0;
@@ -68,7 +71,12 @@ const CostumAudioPlayer = ({ audioSource }) => {
               />
             </svg>
           ) : (
-            <Image src="/musicplayer/stop.svg" width="28px" height="28px" />
+            <Image
+              alt={`stop-${audioSource}`}
+              src="/musicplayer/stop.svg"
+              width="36px"
+              height="36px"
+            />
           )}
         </button>
       </div>

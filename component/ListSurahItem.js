@@ -1,6 +1,6 @@
 import React from "react";
 
-const QuranListItem = ({
+const ListSurahItem = ({
   number,
   name,
   arabicName,
@@ -28,4 +28,4 @@ const QuranListItem = ({
   );
 };
 
-export default QuranListItem;
+export default ListSurahItem;

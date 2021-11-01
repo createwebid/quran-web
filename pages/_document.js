@@ -14,7 +14,7 @@ class MyDocument extends Document {
             content="width=device-width, initial-scale=1.0"
           />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/quran.png"></link>
+          <link rel="apple-touch-icon" href="/quran.svg"></link>
         </Head>
         <body>
           <Main />
