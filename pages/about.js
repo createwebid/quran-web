@@ -40,15 +40,6 @@ const about = () => {
             <li>Tajwid</li>
             <li>MP3 bacaan Al-Quran</li>
           </ul>
-          <p>
-            Apabila ada masukan silahkan kirim ke alamat email{": "}
-            <a
-              className="text-blue-500 underline"
-              href="mailto:lukistriya04@gmail.com"
-            >
-              lukistriya04@gmail.com
-            </a>
-          </p>
           <p>Terimakasih.</p>
         </div>
       </main>
