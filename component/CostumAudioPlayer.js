@@ -25,6 +25,7 @@ const CostumAudioPlayer = ({ audioSource }) => {
         style={{ minWidth: "24px" }}
       >
         <button
+          title={`playaudio-${audioSource}`}
           aria-label={`playbtn-${audioSource}`}
           hidden={isPlaying}
           onClick={() => {

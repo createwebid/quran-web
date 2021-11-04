@@ -62,6 +62,17 @@ const about = () => {
             <li>Tajwid (belum menemukan API yang menyediakan tajwid)</li>
             <li>MP3 bacaan Al-Quran</li>
           </ul>
+          <p>
+            If you have any suggestions for us, please send an email to{" "}
+            <a
+              className="text-blue-500 underline"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="mailto:fahmilukis04@gmail.com"
+            >
+              fahmilukis04@gmail.com
+            </a>
+          </p>
           <p>Terimakasih.</p>
         </div>
       </main>

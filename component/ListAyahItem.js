@@ -22,7 +22,7 @@ const ListAyahItem = ({ number, arabText, terjemah, tafsir, audioSource }) => {
         )}`}</h2>
         <div className="flex items-center gap-x-6 mr-2">
           <CostumAudioPlayer audioSource={audioSource} />
-          <button aria-label="btn-bookmarks">
+          <button title={`bookmarks-${number}`} aria-label="btn-bookmarks">
             <Image
               alt="bookmarks-icon"
               src={`/bookmarks.svg`}
@@ -30,7 +30,7 @@ const ListAyahItem = ({ number, arabText, terjemah, tafsir, audioSource }) => {
               height="28px"
             />
           </button>
-          <button aria-label="btn-share">
+          <button title={`share-${number}`} aria-label="btn-share">
             <Image
               alt="share-icon"
               src={`/share.svg`}
