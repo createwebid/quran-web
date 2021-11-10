@@ -58,20 +58,6 @@ const BottomNavigation = () => {
                 </li>
               ) : null}
               <li className="flex justify-center h-14  hover:bg-gray-200">
-                <a
-                  href="mailto:lukistriya04@gmail.com"
-                  className="w-full h-full flex flex-row items-center px-1"
-                >
-                  <Image
-                    src="/feedback.svg"
-                    alt="Menu"
-                    height="18px"
-                    width="18px"
-                  />
-                  <span className="ml-4">Kirimkan Masukan Melalui Surel</span>
-                </a>
-              </li>
-              <li className="flex justify-center h-14  hover:bg-gray-200">
                 <Link href="/about">
                   <a className="w-full h-full flex flex-row items-center px-1">
                     <Image
@@ -94,10 +80,15 @@ const BottomNavigation = () => {
         }`}
       >
         <div className="max-w-screen-md max-h-14 mx-auto flex justify-between items-center px-4 pt-3 pb-2">
-          <button className="outline-none" onClick={() => setShow(!show)}>
+          <button
+            aria-label="menu-btn"
+            className="outline-none"
+            onClick={() => setShow(!show)}
+          >
             <Image src="/menu.svg" alt="Menu" height="32px" width="32px" />
           </button>
           <button
+            aria-label="scroll-top"
             onClick={() => window.scrollTo({ top: 1, behavior: "smooth" })}
             className="px-2 outline-none flex flex-row justify-center items-center"
           >

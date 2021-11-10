@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useRouter } from "next/router";
-import QuranPage from "../../component/QuranPage";
+import ListAyahItem from "../../component/ListAyahItem";
 import { useQueryQuran } from "../../lib/queryQuran";
 import BottomNavigation from "../../component/BottomNavigation";
 import TopSurahNavigation from "../../component/TopSurahNavigation";
@@ -41,8 +41,9 @@ const Surah = () => {
               )}
               {ayah?.verses?.map((item, index) => {
                 return (
-                  <QuranPage
+                  <ListAyahItem
                     key={index}
+                    audioSource={item?.audio.primary}
                     number={item?.number.inSurah}
                     arabText={item?.text.arab}
                     terjemah={item?.translation.id}

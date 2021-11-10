@@ -35,18 +35,42 @@ const about = () => {
               https://api.quran.sutanlab.id/
             </a>
           </p>
+          <p>
+            Mengambil ilustrasi AlQuran dari :{" "}
+            <a
+              className="text-blue-500 underline"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.figma.com/community/file/966921639679380402"
+            >
+              https://www.figma.com/community/file/966921639679380402
+            </a>
+          </p>
+          <p>
+            Mengambil referensi warna dan sebagian besar layout dari :{" "}
+            <a
+              className="text-blue-500 underline"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.behance.net/gallery/77733463/Quran-Application-UI-UX-Design-AnalyzeQuran"
+            >
+              https://www.behance.net/gallery/77733463/Quran-Application-UI-UX-Design-AnalyzeQuran
+            </a>
+          </p>
           <p>Fitur yang direncanakan ada: </p>
           <ul className="list-disc ml-4">
-            <li>Tajwid</li>
+            <li>Tajwid (belum menemukan API yang menyediakan tajwid)</li>
             <li>MP3 bacaan Al-Quran</li>
           </ul>
           <p>
-            Apabila ada masukan silahkan kirim ke alamat email{": "}
+            If you have any suggestions for us, please send an email to{" "}
             <a
               className="text-blue-500 underline"
-              href="mailto:lukistriya04@gmail.com"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="mailto:fahmilukis04@gmail.com"
             >
-              lukistriya04@gmail.com
+              fahmilukis04@gmail.com
             </a>
           </p>
           <p>Terimakasih.</p>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useQueryQuran } from "../lib/queryQuran";
 import Navigation from "../component/Navigation";
-import QuranListItem from "../component/QuranListItem";
+import ListSurahItem from "../component/ListSurahItem";
 import Link from "next/link";
 import Image from "next/image";
 import Loading from "../component/Loading";
@@ -62,7 +62,7 @@ const index = () => {
                 type="text"
                 placeholder="Cari Nama Surah"
               />
-              <button type="submit">
+              <button aria-label="submit" type="submit">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6 text-blue-line hover:text-blue-text transition duration-100 cursor-pointer"
@@ -93,7 +93,7 @@ const index = () => {
                     href={`/surah/${list.number}`}
                   >
                     <a>
-                      <QuranListItem
+                      <ListSurahItem
                         revelationType={list.revelation.id}
                         arabicName={list.name.short}
                         numOfAyahs={list.numberOfVerses}
